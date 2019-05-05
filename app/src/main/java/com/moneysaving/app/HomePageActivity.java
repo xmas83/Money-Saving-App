@@ -4,8 +4,13 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.lukedeighton.wheelview.WheelView;
@@ -16,6 +21,8 @@ import java.util.ArrayList;
 public class HomePageActivity extends AppCompatActivity {
 
     private WheelView mWheelView;
+    private ListView mListView;
+    private RadioButton nightModeBtn;
     private String[] colors = {"#fd5308","#fd5308","#fd5308","#fd5308"};
     private ArrayList<Drawable> icons = new ArrayList<>();
     int wheelItems = 5;
@@ -26,6 +33,7 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         populateWheelView();
+        populateNavigationView();
 
     }
     public void populateWheelView () {
@@ -67,5 +75,15 @@ public class HomePageActivity extends AppCompatActivity {
                 Toast.makeText(HomePageActivity.this, "Item: "+ position, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void populateNavigationView () {
+        mListView = (ListView) findViewById(R.id.left_drawer);
+
+        ArrayList<String> listData = new ArrayList<>();
+        listData.add("Settings");
+        listData.add("Night Mode");
+        ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
+        mListView.setAdapter(adapter);
     }
 }
