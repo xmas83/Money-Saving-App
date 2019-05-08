@@ -15,6 +15,8 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
+
+// This tests the launch of the home page
 public class HomePageLaunchTest {
 
     @Rule

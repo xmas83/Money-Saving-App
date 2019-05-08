@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-
+    // This tests the launch of the app
 public class MainActivityTest {
 
     @Rule
