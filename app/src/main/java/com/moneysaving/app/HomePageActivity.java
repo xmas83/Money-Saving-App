@@ -1,11 +1,13 @@
 package com.moneysaving.app;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.hardware.SensorManager;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,24 +20,33 @@ import android.widget.Toast;
 
 import com.lukedeighton.wheelview.WheelView;
 import com.lukedeighton.wheelview.adapter.WheelAdapter;
+import com.squareup.seismic.ShakeDetector;
 
 import java.util.ArrayList;
 
-public class HomePageActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity implements ShakeDetector.Listener {
 
     private WheelView mWheelView;
-    private String[] colors = {"#fd5308","#fd5308","#fd5308","#fd5308"};
+    private String[] colors = {"#fd5308", "#fd5308", "#fd5308", "#fd5308"};
     private ArrayList<Drawable> icons = new ArrayList<>();
     int wheelItems = 5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        ShakeDetector shakeDetector = new ShakeDetector(this);
+
+        shakeDetector.start(sensorManager);
+
         populateWheelView();
 
     }
-    public void populateWheelView () {
+
+    public void populateWheelView() {
 
         mWheelView = (WheelView) findViewById(R.id.wheelView);
         mWheelView.setWheelItemCount(wheelItems);
@@ -70,8 +81,16 @@ public class HomePageActivity extends AppCompatActivity {
         mWheelView.setOnWheelItemClickListener(new WheelView.OnWheelItemClickListener() {
             @Override
             public void onWheelItemClick(WheelView parent, int position, boolean isSelected) {
-                Toast.makeText(HomePageActivity.this, "Menu Item: "+ position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomePageActivity.this, "Menu Item: " + position, Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    @Override
+    public void hearShake() {
+
+        Intent intent1 = new Intent(HomePageActivity.this, BalanceActivity.class);
+        startActivity(intent1);
+    }
+
 }
