@@ -56,7 +56,7 @@ public class activity_login_in extends AppCompatActivity {
 
                 if (uemail.equals(em)) {
                     if (upass.equals(pas)) {
-// Account exists, return true if the password matches.
+                // Account exists, return true if the password matches.
                         check = true;
 
 
@@ -66,9 +66,9 @@ public class activity_login_in extends AppCompatActivity {
                 }
             } while (c12 != null && !check);
 
-//
+            // When you click the log in button you proceed to the home page.
             if (check) {
-                Intent I = new Intent(activity_login_in.this, UserProfile.class);
+                Intent I = new Intent(activity_login_in.this, HomePageActivity.class);
                 I.putExtra("username", uname);
                 I.putExtra("email", uemail);
                 startActivity(I);
