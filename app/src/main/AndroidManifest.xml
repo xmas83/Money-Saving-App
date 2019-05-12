@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/money_saver_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".BalanceActivity"></activity>
+        <activity android:name=".OverviewActivity" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".AdminHomePageActivity" />
+        <activity android:name=".BalanceActivity" />
         <activity android:name=".BudgetActivity" />
         <activity android:name=".UserDetails" />
         <activity android:name=".Adminpanel" />

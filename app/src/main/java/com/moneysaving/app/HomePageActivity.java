@@ -1,5 +1,6 @@
 package com.moneysaving.app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.hardware.SensorManager;
 import android.support.design.widget.NavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -60,7 +62,6 @@ public class HomePageActivity extends AppCompatActivity implements ShakeDetector
 
         for (int i = 0; i < wheelItems; i++) {
             shapeDrawables[i] = new ShapeDrawable(new OvalShape());
-            // shapeDrawables[i].getPaint().setColor(Color.parseColor(colors[i]));
         }
 
         mWheelView.setAdapter(new WheelAdapter() {
@@ -81,6 +82,15 @@ public class HomePageActivity extends AppCompatActivity implements ShakeDetector
         mWheelView.setOnWheelItemClickListener(new WheelView.OnWheelItemClickListener() {
             @Override
             public void onWheelItemClick(WheelView parent, int position, boolean isSelected) {
+                if (position == 0) {
+                    logOutBtnClick();
+                } else if (position == 2) {
+                    budgetBtnClick();
+                } else if (position == 3) {
+                    profileBtnClick();
+                } else if (position == 4) {
+                    overviewBtnClick();
+                }
                 Toast.makeText(HomePageActivity.this, "Menu Item: " + position, Toast.LENGTH_SHORT).show();
             }
         });
@@ -93,4 +103,46 @@ public class HomePageActivity extends AppCompatActivity implements ShakeDetector
         startActivity(intent1);
     }
 
+    public void profileBtnClick () {
+        Intent intent1 = new Intent(HomePageActivity.this, UserActivity.class);
+        startActivity(intent1);
+    }
+
+    public void budgetBtnClick () {
+        Intent intent1 = new Intent(HomePageActivity.this, BalanceActivity.class);
+        startActivity(intent1);
+    }
+
+    public void overviewBtnClick () {
+        Intent intent1 = new Intent(HomePageActivity.this, OverviewActivity.class);
+        startActivity(intent1);
+    }
+
+    public void logOutBtnClick () {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Security Message");
+        builder.setMessage("Are you sure that you want log out?");
+
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent1 = new Intent(HomePageActivity.this, SignUp.class);
+                startActivity(intent1);
+            }
+        });
+
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 }
+
+
