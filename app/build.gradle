@@ -31,6 +31,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     implementation 'com.squareup:seismic:1.0.2'
     implementation 'com.github.lukedeighton:wheelview:0.4.1'
+    android.defaultConfig.vectorDrawables.useSupportLibrary = true;
 
 
 }
