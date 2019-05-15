@@ -20,6 +20,7 @@ public class UserDetails extends AppCompatActivity {
     String pass;
     String id2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class UserDetails extends AppCompatActivity {
 
             ps=pas.getText().toString();
             dbHelper.updatePass(ps,Integer.valueOf(id2));
-          // Toast.makeText(UserDetails.this,"Password Changed",Toast.LENGTH_SHORT).show();
+           Toast.makeText(UserDetails.this,"Password Changed",Toast.LENGTH_SHORT).show();
 
 
 

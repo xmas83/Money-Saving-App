@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#82c8d8"
-    tools:context="com.moneysaving.app.activity_login_in">
+    tools:context="com.moneysaving.app.myprofile">
     <TextView
         android:id="@+id/login_title"
         android:layout_width="fill_parent"
@@ -17,14 +17,14 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="22dp"
         android:gravity="center_horizontal"
-        android:text="Login"
+        android:text="My Profile"
         android:textColor="#fff"
         android:textSize="26sp"
         android:textStyle="bold" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_below="@+id/login_title"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -44,57 +44,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/EmailId"
+                <TextView
+                    android:id="@+id/nId"
+                    android:layout_marginTop="50dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/profile"
                     android:singleLine="true"
-                    android:inputType="textEmailAddress"
-                    android:hint=" Email Id" />
+                    android:hint=" name" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
+                <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="50dp"
                     android:singleLine="true"
-                    android:drawableLeft="@drawable/lock7"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:id="@+id/Password1"/>
+                    android:drawableLeft="@drawable/email1"
+                    android:id="@+id/email11"/>
             </android.support.design.widget.TextInputLayout>
 
-            <Button
-                android:id="@+id/buttonSignIn"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_margin="22dp"
-                android:background="#d67601"
-                android:text="Log In"
-                android:onClick="loginNow"
-                android:textAllCaps="false"
-                android:textColor="#fff"
-                android:textSize="18sp"
-                tools:ignore="InvalidId" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="21dp"
-                android:text="Don't have Account?"
-                />
 
-            <TextView
-                android:paddingTop="5dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:textColor="#d67601"
-                android:text="Sign Up "
-                android:id="@+id/textViewSignUpAsUser"
-                android:layout_gravity="center"/>
+
+
 
         </LinearLayout>
     </RelativeLayout>
