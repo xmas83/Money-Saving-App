@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:orientation="vertical"
+    android:background="?attr/backgroundColor"
+    tools:context=".SettingsActivity">
+
+
+    <Switch
+        android:id="@+id/switch_nightmode"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Night Mode" />
+
+    <Switch
+        android:id="@+id/switch_notification"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Notifications" />
+
+
+
+</LinearLayout>

@@ -205,6 +205,11 @@ public class UserProfile extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
+        } else if (id == R.id.nav_settings) {
+            Intent settingsIntent = new Intent(UserProfile.this, SettingsActivity.class);
+            startActivity(settingsIntent);
+
+
         } else if (id == R.id.nav_share) {
             final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
             try {

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "552640059718",
+    "firebase_url": "https://money-saving-app-3ae07.firebaseio.com",
+    "project_id": "money-saving-app-3ae07",
+    "storage_bucket": "money-saving-app-3ae07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552640059718:android:b79dbf7c934c16f2",
+        "android_client_info": {
+          "package_name": "com.moneysaving.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552640059718-ciqo48np5l6ebfecmadrv53c9tb8sdgm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moneysaving.app",
+            "certificate_hash": "004334345c87f974e57575c1ed7603dde0669740"
+          }
+        },
+        {
+          "client_id": "552640059718-ffs3gmnr8n7cj9qmt1duotvmvh26ksag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJdvZajX1Ctq34QHZcJ7wlHP8w3-D73CM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "552640059718-ffs3gmnr8n7cj9qmt1duotvmvh26ksag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
