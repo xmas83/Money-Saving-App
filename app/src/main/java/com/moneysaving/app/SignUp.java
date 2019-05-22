@@ -60,20 +60,25 @@ public class SignUp extends AppCompatActivity {
             check = isEmailValid(email1);
             if (check) {
                 if (check1 == false) {
+                    boolean passwordCheck = isPasswordValid(pass);
+                    if (passwordCheck) {
 
-                    long rownumber = dbHelper.insertUsersInDb(uid, name1, email1, pass);
-                    uid += 1;
-                    Toast.makeText(this, "Registration Successful, Member number: " + String.valueOf(rownumber), Toast.LENGTH_SHORT).show();
-                    try {
-                        Cursor c = dbHelper.get_em1(email1);
-                        c.moveToFirst();
-                        Intent I = new Intent(SignUp.this, UserProfile.class);
-                        I.putExtra("useri", c.getString(0));
-                        I.putExtra("username", name1);
-                        I.putExtra("email", email1);
-                        startActivity(I);
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
+                        long rownumber = dbHelper.insertUsersInDb(uid, name1, email1, pass);
+                        uid += 1;
+                        Toast.makeText(this, "Registration Successful, Member number: " + String.valueOf(rownumber), Toast.LENGTH_SHORT).show();
+                        try {
+                            Cursor c = dbHelper.get_em1(email1);
+                            c.moveToFirst();
+                            Intent I = new Intent(SignUp.this, UserProfile.class);
+                            I.putExtra("useri", c.getString(0));
+                            I.putExtra("username", name1);
+                            I.putExtra("email", email1);
+                            startActivity(I);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Password must be at least 8 characters, and must contain at least one letter and at least one number and special character.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Email already exists", Toast.LENGTH_SHORT).show();
@@ -92,6 +97,14 @@ public class SignUp extends AppCompatActivity {
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+
+    public static boolean isPasswordValid(String pass) {
+        String expression = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        Pattern pattern = Pattern.compile(expression);
+        Matcher matcher = pattern.matcher(pass);
         return matcher.matches();
     }
 }

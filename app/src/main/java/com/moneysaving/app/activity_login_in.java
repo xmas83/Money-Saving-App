@@ -1,10 +1,13 @@
 package com.moneysaving.app;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,15 +28,32 @@ public class activity_login_in extends AppCompatActivity {
     String em;
     String pas;
     String uid;
+    CheckBox checkBox;
+    SharedPreferences sharedPreferences;
+    EditText passwordField;
+    EditText emailField;
+    Boolean saveUserInfo;
+    SharedPreferences.Editor editor;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_in);
-
+        passwordField = ((EditText) findViewById(R.id.Password1));
+        emailField = ((EditText) findViewById(R.id.EmailId));
+        checkBox = ((CheckBox)findViewById(R.id.rememberMe));
+        sharedPreferences = getSharedPreferences("Remember", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         dblist = new DBHelper(activity_login_in.this); //retreiveing data
         c12 = dblist.listRecord(); //calling the dbhelper function
+
+        //saveUserInfo = sharedPreferences.getBoolean("Save User", false);
+        //if (saveUserInfo == true) {
+            emailField.setText(sharedPreferences.getString("email", ""));
+            passwordField.setText(sharedPreferences.getString("password", ""));
+            //checkBox.setChecked(true);
+        //}
 
 
     }
@@ -95,7 +115,17 @@ public class activity_login_in extends AppCompatActivity {
                          I.putExtra("useri", uid);
                          I.putExtra("username", uname);
                          I.putExtra("email", uemail);
-                         startActivity(I);
+                         if(checkBox.isChecked()) {
+                             editor.putString("email", em);
+                             editor.putString("password", pas);
+                             editor.commit();
+                             startActivity(I);
+                         }else {
+                             editor.putString("email", "");
+                             editor.putString("password", "");
+                             editor.commit();
+                             startActivity(I);
+                         }
                      } else
                          {
                          Toast.makeText(this, "Register First/Email or password is wrong", Toast.LENGTH_SHORT).show();
