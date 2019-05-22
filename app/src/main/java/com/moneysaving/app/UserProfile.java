@@ -209,6 +209,11 @@ public class UserProfile extends AppCompatActivity
             Intent settingsIntent = new Intent(UserProfile.this, SettingsActivity.class);
             startActivity(settingsIntent);
 
+        } else if (id == R.id.nav_project_report) {
+
+            Intent projectReportIntent = new Intent(UserProfile.this, ProjectReportActivity.class);
+            startActivity(projectReportIntent);
+
 
         } else if (id == R.id.nav_share) {
             final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
