@@ -15,20 +15,21 @@
 
         <ImageView
             android:id="@+id/intro_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="239dp"
+            android:layout_height="246dp"
             android:layout_gravity="center"
-            android:src="@drawable/money_saving_logo"/>
+            android:src="@mipmap/ic_launcher_foreground" />
+
         <TextView
-            android:layout_width="wrap_content"
             android:id="@+id/intro_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Money saving app"
-            android:textSize="23dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_gravity="center"/>
+            android:text="The Money Saver"
+            android:textColor="@color/yellow"
+            android:textSize="23dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
