@@ -29,6 +29,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import hotchemi.android.rate.AppRate;
+
 public class UserProfile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     DBHelper dblist1 = new DBHelper(UserProfile.this);
@@ -51,6 +53,13 @@ public class UserProfile extends AppCompatActivity
         setContentView(R.layout.activity_user_profile2);
         ui = getIntent().getExtras().getString("useri");
 
+        AppRate.with(this)
+                .setInstallDays(1)
+                .setLaunchTimes(3)
+                .setRemindInterval(2)
+                .monitor();
+
+        AppRate.showRateDialogIfMeetsConditions(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

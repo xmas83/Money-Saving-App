@@ -65,6 +65,5 @@ public class expense extends AppCompatActivity implements AdapterView.OnItemSele
             Toast.makeText(getApplicationContext(), "Enter Value first", Toast.LENGTH_SHORT).show();
         }
 
-
     }
 }

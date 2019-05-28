@@ -50,6 +50,7 @@ public class adduincome extends AppCompatActivity {
 
         amount=(EditText) findViewById(R.id.Am);
         Desc=(EditText) findViewById(R.id.dsc);
+        //
         date1 = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         date = (EditText) findViewById(R.id.date);
         date.setText(date1);

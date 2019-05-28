@@ -39,6 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public long  insertUsersInDb(int uid,String name1, String email1,String pass)
     {
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
        long rowinserted=0;
@@ -242,6 +243,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public Cursor get_ex(int uid,String nm,int d)
     {
+
         SQLiteDatabase db=getReadableDatabase();
         String[] selection={nm};
         Cursor cursor=db.rawQuery("select  sum(amount) from expenses where userid = "+ uid+" and icategory like '"+nm+"' and month = "+ d+" order by _id desc",null);
@@ -262,12 +264,14 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public  Cursor getdata(int i){
+
         SQLiteDatabase db=getReadableDatabase();
         Cursor cursor=db.rawQuery("select * from userprofile where _id = "+ i+" ",null);
         return cursor;
 
     }
     public void updatePass(String ps,  int i) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("password", ps);

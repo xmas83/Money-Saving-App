@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Money_Saving_app</string>
 
+    <string name = "rate_dialog_title">Custom title</string>
+    <string name = "rate_dialog_message">Message</string>
+    <string name = "rate_dialog_ok">Rate us now</string>
+    <string name = "rate_dialog_cancel">Remind me later</string>
+    <string name = "rate_dialog_no">Custom no</string>
+
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

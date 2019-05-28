@@ -118,6 +118,7 @@ public class activity_login_in extends AppCompatActivity {
                          if(checkBox.isChecked()) {
                              editor.putString("email", em);
                              editor.putString("password", pas);
+                             //shared prefernces editor
                              editor.commit();
                              startActivity(I);
                          }else {
