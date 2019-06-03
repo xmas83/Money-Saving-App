@@ -19,7 +19,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_user_profile"
+        app:itemIconTint="@color/draweritem"
+    app:itemTextColor="@color/draweritem"
+    app:itemBackground="@android:color/transparent"
+
+    app:headerLayout="@layout/nav_header_user_profile"
         app:menu="@menu/activity_user_profile2_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

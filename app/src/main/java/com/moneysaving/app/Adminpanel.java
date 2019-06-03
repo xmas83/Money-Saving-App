@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Adminpanel extends AppCompatActivity {
     ListView List;
@@ -27,8 +25,7 @@ public class Adminpanel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adminpanel);
        List=(ListView)findViewById(R.id.list);
-      // String [] abc={"abc","bch","ghfg","hdhd"};
-        dbHelper=new DBHelper(Adminpanel.this);
+       dbHelper=new DBHelper(Adminpanel.this);
         c1=dbHelper.listRecord();
         c1.moveToFirst();
         do{
@@ -43,10 +40,9 @@ public class Adminpanel extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                Cursor c2=dbHelper.getdata(i+1);
+                Cursor c2=dbHelper.getData(i+1);
                 c2.moveToFirst();
                 String id1=c2.getString(0);
-               // String usid=c2.getString(1);
                 String nm=c2.getString(2);
                 String em=c2.getString(3);
                 String pas=c2.getString(4);

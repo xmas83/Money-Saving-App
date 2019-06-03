@@ -11,9 +11,7 @@ import com.moneysaving.app.model.User;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
-/**
- * The type Database helper.
- */
+
 
 public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
 

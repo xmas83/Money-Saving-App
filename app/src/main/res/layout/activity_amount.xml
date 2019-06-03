@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_marginHorizontal="20dp"
-    android:layout_marginVertical="50dp"
     android:layout_height="match_parent"
-    tools:context=".amount">
-
-    <EditText
-        android:id="@+id/enteramount"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+    <include
+        layout="@layout/activity_supportamount"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Amount"
-        android:textColorHint="#82c8d8"
-        android:inputType="number"
-        android:layout_marginTop="70dp"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="135dp" />
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/saveamount"
-        android:onClick="enteramount"
-        android:background="#82c8d8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:layout_marginTop="120dp"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="291dp" />
-</RelativeLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:itemIconTint="@color/draweritem"
+        app:itemTextColor="@color/draweritem"
+        app:itemBackground="@android:color/transparent"
+        app:headerLayout="@layout/nav_header_user_profile"
+        app:menu="@menu/activity_user_profile2_drawer" />
+
+
+
+
+</android.support.v4.widget.DrawerLayout>
